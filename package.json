@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "sh ./.script/server_buildstart.sh",
+    "dev": "nodemon -r esm src/index.js",
+    "dev:fe": "cd fe && yarn start && cd ../"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,15 @@
   },
   "homepage": "https://github.com/qlqhqo2341/board#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "eslint": "^7.15.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.7",
+    "mongoose-auto-increment": "^5.0.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
