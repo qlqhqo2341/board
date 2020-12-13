@@ -12,6 +12,7 @@ function App() {
           <Route path="/" exact component={PostList} />
           <Route path="/post/create" exact component={PostForm} />
           <Route path="/post/:id" exact component={PostView} />
+          <Route path="/post/:id/edit" exact component={PostForm} />
         </Switch>
       </BrowserRouter>
     </div>
