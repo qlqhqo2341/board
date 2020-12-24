@@ -38,3 +38,10 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ubuntu
           TARGET: /home/ubuntu/qlqhqo2341board
+    - name: mongo, api run via ssh
+      uses: garygrossgarten/github-action-ssh@release
+      with:
+        command: "bash /home/ubuntu/qlqhqo2341board/script/mongo_run.sh && bash /home/ubuntu/qlqhqo2341board/script/run.sh"
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ubuntu
+        privateKey: ${{ secrets.SERVER_SSH_KEY }}
