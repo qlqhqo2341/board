@@ -17,10 +17,10 @@ function PostList({ history }) {
           history.push("/");
         }, 5000);
       });
-  }, []);
+  }, [history]);
 
   if (!data) {
-    return <h3> 로딩중입니다.. </h3>;
+    return <h3> 로딩중입니다. </h3>;
   }
 
   return (

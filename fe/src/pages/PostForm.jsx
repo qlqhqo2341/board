@@ -24,7 +24,7 @@ function PostForm({
           history.push("/");
         });
     }
-  }, []);
+  }, [id, history]);
 
   function createOnChange(setData) {
     return (e) => {
