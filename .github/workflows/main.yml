@@ -29,6 +29,13 @@ jobs:
         node-version: '12.x'
     - name: fe build
       run: npm run heroku-postbuild
+    - name: api prescript run via ssh
+      uses: garygrossgarten/github-action-ssh@release
+      with:
+        command: "bash /home/ubuntu/qlqhqo2341board/script/prescript.sh"
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ubuntu
+        privateKey: ${{ secrets.SERVER_SSH_KEY }}
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
@@ -38,10 +45,10 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ubuntu
           TARGET: /home/ubuntu/qlqhqo2341board
-    - name: mongo, api run via ssh
+    - name: mongo, api postscript run via ssh
       uses: garygrossgarten/github-action-ssh@release
       with:
-        command: "bash /home/ubuntu/qlqhqo2341board/script/mongo_run.sh && bash /home/ubuntu/qlqhqo2341board/script/run.sh"
+        command: "bash /home/ubuntu/qlqhqo2341board/script/mongo_run.sh && bash /home/ubuntu/qlqhqo2341board/script/postscript.sh"
         host: ${{ secrets.REMOTE_HOST }}
         username: ubuntu
         privateKey: ${{ secrets.SERVER_SSH_KEY }}
