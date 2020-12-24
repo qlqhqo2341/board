@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PostForm from "./pages/PostForm";
-// import "./App.css";
 import PostList from "./pages/PostList";
 import PostView from "./pages/PostView";
 
